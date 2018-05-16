@@ -12,6 +12,21 @@ public func routes(_ router: Router) throws {
             return acronym.save(on: req)
         }
     }
+    
+    router.get("hello",String.parameter) { (req) -> String in
+        let name = try req.parameters.next(String.self)
+        
+        return "Hello,\(name)!"
+    }
+    
+    router.get("pjt","zj") { (req) in
+        return """
+              这波狗粮！
+            真的不怪我呀😂
+          涛四岁的女票是婧三岁。
+"""
+    }
+    
     // Example of configuring a controller
 
 }
